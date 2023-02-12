@@ -29,11 +29,3 @@ jobs:
 
     - name: Run ESLint
       run: npx eslint .
-
-    - name: Report status
-      if: failure()
-      uses: Mattwwilson34/ultistats.com@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        message: |
-          There were some issues with your code. Please fix them and try again.
