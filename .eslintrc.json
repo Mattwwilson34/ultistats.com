@@ -6,7 +6,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "prettier"
     ],
     "overrides": [],
     "parserOptions": {
@@ -19,12 +20,15 @@
         ]
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
     "settings": {
         "react": {
             "version": "detect"
         },
-        "rules": {}
+        "rules": {
+            "prettier/prettier": ["error"]
+        }
     }
 }
