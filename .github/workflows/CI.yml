@@ -32,7 +32,7 @@ jobs:
 
     - name: Report status
       if: failure()
-      uses: Mattwwilson34/action-issue-comment@v1
+      uses: Mattwwilson34/ultistats.com
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         message: |
