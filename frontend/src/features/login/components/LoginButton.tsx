@@ -13,7 +13,8 @@ const LoginButton = (): JSX.Element => {
       try {
         const response = await getRedirectResult(auth)
         if (response !== null) {
-          localStorage.setItem('firebaseUser', JSON.stringify(response.user))
+          const { providerData } = response.user
+          localStorage.setItem('firebaseUser', JSON.stringify(providerData[0]))
           navigate('/')
         }
       } catch (error) {
