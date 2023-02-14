@@ -1,13 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Button } from '@mui/material'
-import userContext from './utils/user-context'
+import { auth } from '../../firebase/firebase'
 
 function App(): React.ReactElement {
-  const user = useContext(userContext) ?? {displayName: 'User not found in DB'}
+  const handleLogout = (): void => {
+    void (async () => {
+      try {
+        await auth.signOut()
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }
   return (
     <div className="App">
-      <Button variant="text">
-        {`Welcome ${user?.displayName}`}
+      <Button variant="text">{`Welcome`}</Button>
+      <Button variant="contained" onClick={handleLogout}>
+        Logout
       </Button>
     </div>
   )
