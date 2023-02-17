@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginButton Component Renders LoginButtonComponent 1`] = `
+<React.Fragment>
+  <ForwardRef(Button)
+    onClick={[Function]}
+    size="large"
+    variant="contained"
+  >
+    Login
+  </ForwardRef(Button)>
+</React.Fragment>
+`;
