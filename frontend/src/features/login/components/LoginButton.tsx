@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Button, CircularProgress } from '@mui/material'
 import { getRedirectResult, signInWithRedirect } from 'firebase/auth'
 import { auth, provider } from '../../../../../firebase/firebase'
-import Logo from '../../../assets/logo-color.svg'
 import checkUserExists from '../../../utils/check-user-exists'
 import saveUserDataToDB from '../../../utils/save-user-to-db'
 
@@ -18,6 +17,7 @@ const LoginButton = (): JSX.Element => {
         }
 
         const userData = response.user?.providerData[0]
+        console.log(userData)
         if (userData === null || userData === undefined) {
           throw Error('User data undefined')
         }
@@ -56,16 +56,11 @@ const LoginButton = (): JSX.Element => {
   return (
     <>
       {!redirected ? (
-        <>
-          <img src={Logo} alt="UltiStats logo" />
-          <Button variant="contained" size="large" onClick={handleLogin}>
-            Login
-          </Button>
-        </>
+        <Button variant="contained" size="large" onClick={handleLogin}>
+          Login
+        </Button>
       ) : (
-        <div>
-          <CircularProgress />
-        </div>
+        <CircularProgress />
       )}
     </>
   )

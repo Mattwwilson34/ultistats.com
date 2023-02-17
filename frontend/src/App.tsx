@@ -13,7 +13,7 @@ function App(): React.ReactElement {
     })()
   }
   return (
-    <div className="App">
+    <div className="App" data-testid="App">
       <Button variant="text">{`Welcome`}</Button>
       <Button variant="contained" onClick={handleLogout}>
         Logout

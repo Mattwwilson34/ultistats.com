@@ -9,11 +9,11 @@ import { AuthProvider } from './Auth/AuthContext'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
+    element: <Root data-testid="root" />,
   },
   {
     path: '/login',
-    element: <Login />,
+    element: <Login data-testid="login" />,
   },
 ])
 
