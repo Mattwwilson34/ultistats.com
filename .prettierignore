@@ -30,3 +30,4 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
+coverage

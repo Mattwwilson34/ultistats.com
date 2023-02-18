@@ -26,3 +26,4 @@ dist-ssr
 
 # other files
 server.cjs
+coverage
