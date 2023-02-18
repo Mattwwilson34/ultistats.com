@@ -9,7 +9,7 @@ import logoutUser from '../../../utils/logout-user'
 
 export default function TopAppNav(): React.ReactElement {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, width: 1 }}>
       <AppBar position="static">
         <Toolbar disableGutters>
           <IconButton color="inherit" aria-label="menu"></IconButton>
