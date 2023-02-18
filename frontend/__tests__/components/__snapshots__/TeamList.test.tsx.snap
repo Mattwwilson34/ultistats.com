@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar Component should render the AppBar component correctly 1`] = `
+<ForwardRef(Box)
+  sx={
+    {
+      "bgcolor": "background.paper",
+      "width": "100%",
+    }
+  }
+>
+  <nav
+    aria-label="secondary mailbox folders"
+  >
+    <ForwardRef(List)>
+      <ForwardRef(ListItem)
+        disablePadding={true}
+      >
+        <ForwardRef(ListItemButton)>
+          <ForwardRef(ListItemText)
+            primary="New Team"
+          />
+          <ForwardRef(ListItemIcon)>
+            <Memo />
+          </ForwardRef(ListItemIcon)>
+        </ForwardRef(ListItemButton)>
+      </ForwardRef(ListItem)>
+    </ForwardRef(List)>
+  </nav>
+  <ForwardRef(Divider) />
+  <nav
+    aria-label="secondary mailbox folders"
+  >
+    <ForwardRef(List)>
+      <TeamListItem
+        teamName="Atlanta Hustle"
+      />
+    </ForwardRef(List)>
+    <ForwardRef(List)>
+      <TeamListItem
+        teamName="Austin Sol"
+      />
+    </ForwardRef(List)>
+    <ForwardRef(List)>
+      <TeamListItem
+        teamName="Chicago Union"
+      />
+    </ForwardRef(List)>
+    <ForwardRef(List)>
+      <TeamListItem
+        teamName="Dallas Roughnecks"
+      />
+    </ForwardRef(List)>
+  </nav>
+</ForwardRef(Box)>
+`;

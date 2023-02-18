@@ -5,16 +5,16 @@ exports[`App Component should render the App component correctly 1`] = `
   className="App"
   data-testid="App"
 >
-  <ForwardRef(Button)
-    variant="text"
-  >
-    Welcome
-  </ForwardRef(Button)>
-  <ForwardRef(Button)
-    onClick={[Function]}
-    variant="contained"
-  >
-    Logout
-  </ForwardRef(Button)>
+  <TopAppNav />
+  <TeamList
+    teams={
+      [
+        "Atlanta Hustle",
+        "Austin Sol",
+        "Chicago Union",
+        "Dallas Roughnecks",
+      ]
+    }
+  />
 </div>
 `;
