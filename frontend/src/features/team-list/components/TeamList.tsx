@@ -9,18 +9,35 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import Divider from '@mui/material/Divider'
 import TeamListItem from './TeamListItem'
 import { uuidv4 } from '@firebase/util'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../../Auth/AuthContext'
+import useTeams from '../../../hooks/useTeams'
 
-interface TeamListProps {
-  teams: string[] | null
-}
+export default function TeamList(): React.ReactElement {
+  const { currentUser } = React.useContext(AuthContext)
+  const navigate = useNavigate()
+  const { data: teams, isLoading, isError } = useTeams(currentUser.uid)
 
-export default function TeamList({ teams }: TeamListProps): React.ReactElement {
+  const handleNewTeamClick = (): void => {
+    navigate('/add-team')
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (isError) {
+    return <div>Error loading teams</div>
+  }
+
+  console.log(teams)
+
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="secondary mailbox folders">
         <List>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={handleNewTeamClick}>
               <ListItemText primary="New Team" />
               <ListItemIcon>
                 <AddIcon />
@@ -36,7 +53,7 @@ export default function TeamList({ teams }: TeamListProps): React.ReactElement {
           : teams.map((team) => {
               return (
                 <List key={uuidv4()}>
-                  <TeamListItem teamName={team} />
+                  <TeamListItem teamName={team.teamName} />
                 </List>
               )
             })}
