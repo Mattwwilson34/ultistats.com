@@ -3,7 +3,7 @@
 exports[`TopAppNav TopAppNav component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiBox-root css-i9gxme"
+    class="MuiBox-root css-160c8iv"
   >
     <header
       class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-hip9hq-MuiPaper-root-MuiAppBar-root"
