@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/root'
 import Login from './routes/login'
@@ -26,10 +27,21 @@ const router = createBrowserRouter([
   },
 ])
 
+// Create a client
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
-  <AuthProvider>
-    <RouterProvider router={router} />
-  </AuthProvider>
+  <QueryClientProvider client={queryClient}>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </QueryClientProvider>
   // </React.StrictMode>
 )
