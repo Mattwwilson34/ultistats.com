@@ -17,7 +17,6 @@ const LoginButton = (): JSX.Element => {
         }
 
         const userData = response.user?.providerData[0]
-        console.log(userData)
         if (userData === null || userData === undefined) {
           throw Error('User data undefined')
         }
@@ -35,7 +34,9 @@ const LoginButton = (): JSX.Element => {
         console.error(error)
       }
     }
+
     const redirected = localStorage.getItem('redirectedFromGoogleAuth')
+
     if (redirected != null) {
       setRedirected((prevRedirected) => !prevRedirected)
       void getUser()
