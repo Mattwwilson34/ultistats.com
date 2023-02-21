@@ -4,7 +4,6 @@ import { db } from '../../../firebase/firebase'
 
 async function checkUserExists(userData: UserInfo): Promise<boolean> {
   try {
-    console.log(doc())
     const { uid } = userData
     if (uid == null) {
       throw Error('uid is undefined')

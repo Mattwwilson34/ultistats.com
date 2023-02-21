@@ -30,8 +30,6 @@ export default function TeamList(): React.ReactElement {
     return <div>Error loading teams</div>
   }
 
-  console.log(teams)
-
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="secondary mailbox folders">
