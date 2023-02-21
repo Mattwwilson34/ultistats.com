@@ -1,26 +1,19 @@
-import { useQuery, type UseQueryResult } from 'react-query'
-import { db } from '../../../firebase/firebase'
-import { collection, query, where, getDocs } from 'firebase/firestore'
-import { type Team } from '../types/teams'
+import { useQuery } from 'react-query'
+import getTeams from '../utils/get-teams'
 
-type Teams = Team[]
-
-const getTeams = async (userUid: string): Promise<Teams> => {
-  const teams: Teams = []
-  const teamsRef = collection(db, 'teams')
-  const q = query(teamsRef, where('userUid', '==', userUid))
-  const querySnapshot = await getDocs(q)
-  querySnapshot.forEach((doc) => {
-    // Fix: teamName is undefined in this scope. Moving on with dev for now.
-    const team = { ...doc.data() } as Team // eslint-disable-line @typescript-eslint/consistent-type-assertions
-
-    teams.push(team)
-  })
-  return teams
+interface UseTeamsReturnType {
+  data: any
+  error: any
+  isLoading: boolean
+  isError: boolean
 }
 
-const useTeams = (userId: string): UseQueryResult<Teams> => {
-  return useQuery(['teams', userId], async () => await getTeams(userId))
+const useTeams = (userId: string): UseTeamsReturnType => {
+  const { data, error, isLoading, isError } = useQuery(
+    ['teams', userId],
+    async () => await getTeams(userId)
+  )
+  return { data, error, isLoading, isError }
 }
 //
 export default useTeams
